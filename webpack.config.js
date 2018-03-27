@@ -8,13 +8,26 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'script.js'
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader']
+          use: [{
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              minimize: true
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
         })
       }
     ]
