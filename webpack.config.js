@@ -1,6 +1,5 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-// var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
   entry: './src/js/main.js',
@@ -21,7 +20,6 @@ module.exports = {
           use: [{
             loader: "css-loader",
             options: {
-              sourceMap: true,
               minimize: true
             }
           },
@@ -33,11 +31,30 @@ module.exports = {
           }
         ]
         })
+      },
+      {
+        test:  /\.(eot|woff|ttf)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'  
+          }
+        }
+      },
+      {
+        test:  /\.(jpg|png)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'img/'  
+          }
+        }
       }
     ]
   },
   plugins: [
     new ExtractTextPlugin('style.css')
-    // new LiveReloadPlugin()
   ]
 };
