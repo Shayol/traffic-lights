@@ -20,7 +20,19 @@ module.exports = {
           use: [{
             loader: "css-loader",
             options: {
-              minimize: true
+              minimize: true,
+              importLoaders: 1
+            },
+
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              sourceMap: true,
+              plugins: [
+                require('postcss-cssnext')()
+              ]
             }
           },
           {

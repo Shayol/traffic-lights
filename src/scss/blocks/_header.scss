@@ -1,11 +1,12 @@
-$header-color: blueviolet;
+$color: blueviolet;
 
 
 h1 {
-    color: $header-color;
+    transform: translate(50%);
     margin-left: 4em;
+    color: blue;
 }
 
 body {
-    background: url("../img/background.png") no-repeat 50% 0%, blue;
+    background: url("../img/background.png") no-repeat 50% 0%, $color;
 }
