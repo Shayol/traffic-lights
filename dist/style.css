@@ -1,2 +1,2 @@
-h1{color:#8a2be2;margin-left:4em}body{background-color:pink}
+h1{-webkit-transform:translate(50%);transform:translate(50%);margin-left:4em;color:blue}body{background:url(img/background.png) no-repeat 50% 0,#8a2be2}
 /*# sourceMappingURL=style.css.map*/

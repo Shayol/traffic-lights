@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: './src/js/main.js',
@@ -15,15 +16,25 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/,
+        exclude: /index\.html$/, //without this HtmlWebPackPlugin will not work with template file correctly
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           use: [{
             loader: "css-loader",
             options: {
               minimize: true,
-              importLoaders: 1
+              importLoaders: 1,
+              sourceMap: true
             },
-
           },
           {
             loader: 'postcss-loader',
@@ -67,6 +78,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebPackPlugin({
+      title: 'Title',
+      template: "./src/html/index.html",
+      filename: "./index.html"
+    }),
     new ExtractTextPlugin('style.css')
   ]
 };
