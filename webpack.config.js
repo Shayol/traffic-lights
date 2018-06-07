@@ -1,6 +1,7 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const loadersConfig = require("./loaders");
 
 module.exports = {
   entry: './src/js/main.js',
@@ -13,76 +14,15 @@ module.exports = {
     port: 9000
   },
   devtool: "source-map",
-  module: {
-    rules: [
-      {
-        test: /\.html$/,
-        exclude: /index\.html$/, //without this HtmlWebPackPlugin will not work with template file correctly
-        use: [
-          {
-            loader: "html-loader",
-            options: { minimize: true }
-          }
-        ]
-      },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: [{
-            loader: "css-loader",
-            options: {
-              minimize: true,
-              importLoaders: 1,
-              sourceMap: true
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              sourceMap: true,
-              plugins: [
-                require('postcss-cssnext')()
-              ]
-            }
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-        })
-      },
-      {
-        test:  /\.(eot|woff|ttf)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/'  
-          }
-        }
-      },
-      {
-        test:  /\.(jpg|png)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'img/'  
-          }
-        }
-      }
-    ]
-  },
+  module: loadersConfig,
   plugins: [
     new HtmlWebPackPlugin({
       title: 'Title',
       template: "./src/html/index.html",
       filename: "./index.html"
     }),
-    new ExtractTextPlugin('style.css')
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    })
   ]
 };
