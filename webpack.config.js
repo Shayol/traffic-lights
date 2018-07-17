@@ -30,10 +30,14 @@ module.exports = {
       {
         test: /\.html$/,
         //exclude: /index\.html$/, //without this HtmlWebPackPlugin will not work with template file correctly
+        include: path.join(__dirname, 'src/html'),
         use: [
           {
             loader: "html-loader",
-            options: { minimize: true }
+            options: {
+              minimize: true,
+              interpolate: true
+            }
           }
         ]
       },
