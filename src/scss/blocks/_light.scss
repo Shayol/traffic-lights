@@ -1,0 +1,16 @@
+.light {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid black;
+    filter: brightness(20%);
+    &\--red {
+        background-color: red;
+    }
+    &\--green {
+        background-color: green;
+    }
+    &\--yellow {
+        background-color: yellow;
+    }
+}
