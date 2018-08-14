@@ -7,15 +7,3 @@
 4) после нажатия запроса и до включения зеленого на основном светофоре, кнопка запроса игнорируется.
 
 Часть задачи - сделать отображение светофоров, и кнопку. Кнопка всегда доступна к нажатию (не ставим атрибут disabled). Другая часть - реализовать асинхронную логику. По возможности на чистом JS (не прибегая к библиотекам).
-
-
-
-
-Somehow, most examples of Git’s clone command show a subfolder for the repository to be cloned into. I, for example, prefer navigating to the desired directory and like to clone into the current directory. The Git command has to be changed to appear as follows:
-```bash	
-git clone git@github.com:your-username/repository-name.git .
-
-git clone https://github.com/your-username/repository-name .
-```
-
-(stolen from the Internet)
