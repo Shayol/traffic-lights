@@ -1,0 +1,22 @@
+.timer {
+    display: flex;
+    max-width: 700px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.timer__item {
+    width: 90px;
+    height: 90px;
+    font-size: 90px;
+    line-height: 90px;
+    text-align: center;
+    filter: brightness(200%);
+    border: 1px solid black;
+    box-shadow: 4px 4px 5px rgba(95, 93, 93, 0.719);
+    background-color: rgba(95, 93, 93, 0.719);
+}
+
