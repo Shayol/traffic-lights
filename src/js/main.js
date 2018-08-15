@@ -40,7 +40,7 @@ window.addEventListener('load', function () {
     }
 
     function Button(mainLights) {
-        this.element = document.querySelector(".button");
+        this.element = document.querySelector(".button__img");
         this.events = [];
         this.mainLights = mainLights;
         this.crossing = new Promise(resolve => setTimeout(() => resolve(), 60000));

@@ -1,4 +1,16 @@
 .button {
-    height: 100%;
-    margin: 40px;
+    height: 50%;
+    width: 200px;
+    margin: 40px 0;
+    text-align: center;
+}
+.button__text {
+    text-align: center;
+    font-weight: bold;
+}
+.button__img {
+    cursor: pointer;
+    display: inline-block;
+    width: 64px;
+    height: 64;
 }
